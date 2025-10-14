@@ -16,7 +16,6 @@ Finally in [@sec-fun] we will investigate the correlation between movie earnings
 ```{r}
 #| message: false
 #| echo: false
-#| include: false
 library(tidyverse)
 bond.data <- read_csv("data/jamesbond.csv")
 bond.data
@@ -73,4 +72,16 @@ bond.data |> ggplot(aes(x=BJB, y=US_Adj)) +
 ```
 
 It looks as though there is a nonlinear relationship between the variables; movies are more likely to earn more money if Bond says "Bond, James Bond" either 0 or 2 times.
+
+Now, we will have a look at whether there is a significant relationship with some other variables:
+
+```{r}
+ggplot(bond.data, aes(x=Martinis, y=US_Adj, color=Year)) +
+    geom_point(size=4, shape="x") +
+    labs(
+      x="Martinis",
+      y="US Revenue (Inflation-Adjusted)",
+      title="Martini-Revenue Correlation"
+    )
+```
 
