@@ -75,15 +75,7 @@ It looks as though there is a nonlinear relationship between the variables; movi
 
 Now, we will have a look at whether there is a significant relationship with some other variables:
 
-```{r}
-ggplot(bond.data, aes(x=Martinis, y=US_Adj, color=Year)) +
-    geom_point(size=4, shape="x") +
-    labs(
-      x="Martinis",
-      y="US Revenue (Inflation-Adjusted)",
-      title="Martini-Revenue Correlation"
-    )
-```
+
 ```{r}
 ggplot(bond.data, aes(x=Martinis, y=US_Adj)) +
     geom_point(size=4, shape="x", color="red")  +
