@@ -1,6 +1,6 @@
 ---
 title: Analysis of the James Bond Dataset
-author: Jon Cockayne
+author: ZHIXUAN ZHU
 format: 
     html: default
     pdf: default
@@ -16,8 +16,9 @@ Finally in [@sec-fun] we will investigate the correlation between movie earnings
 ```{r}
 #| message: false
 #| echo: false
+#| include: false
 library(tidyverse)
-bond.data <- read_csv("data/jamesbond.csv")
+bond.data <- read_csv("C:\\Users\\zz5u25\\OneDrive - University of Southampton\\ds\\week3\\data\\jamesbond.csv")
 bond.data
 ```
 
@@ -59,7 +60,17 @@ bond.data |> ggplot(aes(x=Budget_Adj, y=US_Adj, color=Year)) +
     scale_color_continuous()
 ```
 
+
+
 It still seems that the budget has been increasing with year, however there is a much less obvious correlation between this and the earnings of the movie.
+
+```{r}
+ggplot(bond.data, aes(x=Martini, y=US_Adj)) +
+    geom_point() +
+    scale_color_continuous()
+```
+
+
 
 ## Just for Fun { #sec-fun }
 
@@ -72,16 +83,4 @@ bond.data |> ggplot(aes(x=BJB, y=US_Adj)) +
 ```
 
 It looks as though there is a nonlinear relationship between the variables; movies are more likely to earn more money if Bond says "Bond, James Bond" either 0 or 2 times.
-
-Now, we will have a look at whether there is a significant relationship with some other variables:
-
-```{r}
-ggplot(bond.data, aes(x=Martinis, y=US_Adj, color=Year)) +
-    geom_point(size=4, shape="x") +
-    labs(
-      x="Martinis",
-      y="US Revenue (Inflation-Adjusted)",
-      title="Martini-Revenue Correlation"
-    )
-```
 
