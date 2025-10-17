@@ -84,4 +84,13 @@ ggplot(bond.data, aes(x=Martinis, y=US_Adj, color=Year)) +
       title="Martini-Revenue Correlation"
     )
 ```
+```{r}
+ggplot(bond.data, aes(x=Martinis, y=US_Adj)) +
+    geom_point(size=4, shape="x", color="red")  +
+    labs(
+      x="Martinis Consumed",
+      y="US Revenue (Inflation-Adjusted)",
+      title="Martini&Revenue Correlation"
+    )
+```
 
